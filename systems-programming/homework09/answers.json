@@ -1,0 +1,23 @@
+{
+  "q01": "nope_3",
+  "q02": "nope_3",
+  "q03": "nope_3",
+  "q04": "yeah",
+  "q05": [
+    "getaddrinfo",
+    "socket",
+    "bind",
+    "listen",
+    "accept",
+    "read",
+    "write",
+    "close"
+  ],
+  "q06": ["listening", "interrupt", "unreachable", "busy"],
+  "q07": [
+    "read_frequent",
+    "read_slowest",
+    "connect_multiple",
+    "bandwidth_1mbps"
+  ]
+}
