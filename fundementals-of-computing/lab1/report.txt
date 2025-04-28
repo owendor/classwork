@@ -1,0 +1,9 @@
+Lab Report
+Owen Dorweiler
+Fundamentals of Computing, Lab 1
+
+My program in part 2 is meant to find the zeros of an quadratic equation using the quadratic formula.
+
+The program first declares the variables for a, b, and c, followed by the discriminant variables and finally the zero variables. It then accepts user inputs for a, b, and c, and calculates the discriminant. If the discriminant is greater than 0, it calculates the zeros and prints the solution to 4 decimal places. Otherwise, it prints an error message since the zeros are not disctinct and may not be real.
+
+I have verified that the program produces correct responses by running all the edge cases through it and comparing with a quadratic formula solver online. It correctly identifies the zeros when it can, and displays the error message correctly as well. I did not find any situation where it gave an incorrect output.

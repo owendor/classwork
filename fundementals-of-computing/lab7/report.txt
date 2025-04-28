@@ -1,0 +1,46 @@
+Author: Owen Dorweiler
+Class: Fundementals of Computing
+Assignment: Lab 7 Report
+Due: 5 November 2024
+
+USER PERSPECTIVE:
+
+If the user runs the program without any command line arguments, the program enters interactive mode, displaying a blank board and allowing the user to add points using the "a [x] [y]" command, remove using the "r [x] [y]" command, iterate once by typing "n", and run continuously by typing "p". Every time the user adds a point, removes a point, or iterates, the program updates the board and asks for another command. When the user types "p", the program iterates until the user interrupts it by typing Ctrl + C. If the user types something other than one of these commands, the program ouputs an error.
+
+If the user runs the program with a file name, the program iterates continuously using the data from that file. If the file cannot be found, the program gives an error message. If the program does not have a "p" command, the program also gives an error message.
+
+INTERNALLY:
+
+The program first initializes the board by calling the initBoard() function from main(). This function just fills the 40x40 board with spaces.
+
+The program then checks to see how many command line arguments there are. If there is only one, it calls the interactiveMode() function, if there are two, it calls the batchMode() function, and if there are more than two it gives an error message.
+
+Interactive Mode
+
+The interactiveMode() function first prints the board by calling the printBoard() function, which first clears the screen, then prints the board inside a border. Then the user is prompted for a command. The interactiveMode() function reads in the first letter of this command, enters a while loop as long as the command isn't 'q' to quit, and performs a switch statement on it:
+
+1) If the command is "a", it reads in the two points from the buffer, adds that point to the board, and prints the board using printBoard().
+
+2) If the command is "r", it reads in the two points from the budder, removes that point from the board, and prints the board using printBoard().
+
+3) If the command is "n", it calls iterateBoard(), which iterates the board by one. iterateBoard() works by using a nested for loop to go through each point on the board, adding up how many Xs are around it (using another nested for loop), and making a cell alive if it has exactly 3 live cells bordering it, or killing a living cell if it has less than 2 or more than 3 living cells surrounding it.
+
+4) If the command is "p", the program calls runGame(), which loops forever, calling iterateBoard() then printBoard() then sleeping for 0.1 seconds, then repeating.
+
+5) If the command starts with something else, an error message is given.
+
+At the end of the switch statement, the program asks for a command again and loops back to the beginning of the while loop.
+
+Batch Mode
+
+The batchMode() function first opens the file using the name given as a command line argument. If the file does not exist, it gives an error and exits.
+
+If the file does exist, it reads it line by line, and if the line starts with 'a', it reads in the coordinates and adds them to the board. If the line does not start with 'a', it checks if it starts with 'p'. If so, it calls the runGame() command to start the continuous iteration. If not, it outputs an error that no 'run' command was found in the file, and exits.
+
+OUTPUT VERIFICATION
+
+I verified the output by checking it against a bunch of different cases. I checked all the possible errors and it worked as expected.
+
+MYSCENE FILE
+
+I used https://conwaylife.com/ to test various cell configurations to see what they would do, before creating them in the myscene.txt file. I also used the glider from the glider.txt file.

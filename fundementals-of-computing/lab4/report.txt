@@ -1,0 +1,22 @@
+Author: Owen Dorweiler
+Class: Fundementals of Computing
+Assignment: Lab 4, Lab Report
+Due: 1 October 2024
+
+NOTE: in lab 5, I was told that my choices are complicated enough that I can get full credit with the three instead of five.
+
+From a user perspective, the program displays a menu of three options and asks the user to select one. If the user selects the first option, the program asks the user to input a year, and it displays the win, win percent, loss, and loss percent for that year. If the user selects option 2, the program asks for a win percentage theshold, and outputs only the years that meet or surpass that threshold. If the user selects option 3, the program asks for a start and end date, and prints a bar graph of wins for that range. After completing an option, the program prints the menu again and repeats until the user enters 0.
+
+
+Internally, the program calls the printMenu() function to print the menu and get the first user input. If the input is not 0, the program enters a while loop and calls various functions using a switch statement based on the input. If the input is invalid, it displays an error message.
+
+ - The first function called statDisplay() takes a year input and calculates and prints the wins, win percentage, loss, and loss percentage.
+
+ - The second function called winPercent() takes a threshold input and loops through the whole array, only printing the years that meet or surpass that threshold.
+
+ - The third function called graphWins() takes a start and end year input, and iterates through that range, printing a # for every win for that year.
+
+At the end of the while loop, the program calls the printMenu() function again and repeats if the input is not 0.
+
+
+I verified the output of the program by manually comparing the printed values with what the arrays show, and by testing a variety of inputs for each selection. Although the program does not account for errors for every input, it prompts the user to enter a correct input, and the correct inputs yield accurate results.

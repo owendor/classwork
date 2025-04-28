@@ -1,0 +1,20 @@
+Author: Owen Dorweiler
+Class: Fundementals of Computing
+Assignment: Lab 5 Lab Report
+Due: 13 October 2024
+
+Note: I made the program so the list of sayings is not case sensitive. This was just done to improve compatibility. For example, if a string in the array is "Hello world," and the user searches for "hello", it will find and output "Hello world".
+
+From a user perspective, the user is first asked for a filename. If the file is found, the program continues, if not, an error message appears and the user must restart the program. Next, the user is presented with a menu. If they select option 1, the program outputs all the sayings currentlin the database. If the user selects 2, the program prompts them for a new saying to add, and then adds that saying to the database and displays a confirmation message. If there are already 30 sayings in the database, the program doesn't let the user add more. If the user selects option 3, the program asks for a lowercase search term, then ouputs all sayings matching that term. If the user selections option 4, the program asks for a file name, then saves the sayings to that file and displays a confirmation message. The program then displays the menu again and loops until the user enters 5 (exit).
+
+Internally, the program asks the user for the file name, then opens that file if it exists. If it does not exists, it outputs an error message and the program terminates. If it does exist, it creates a sayings[][] array, with sizes determined by the macros MAX_LENGTH and MAX_LINES. To do this, it loops through until the end of the file and saves the strings to the array, removing the newline characters by calling the rmNewLine() function. It then calls the printMenu() function, which returns the user's input. If the input is not 5, it enters a while loop that uses a switch statment to call various functions.
+
+The input is...
+1) Calls printSayings(), which prints the sayings by looping though and printing one string at a time
+2) Calls addSaying(), which prompts the user for a saying if there are fewer than 30 sayings, removes the new line character with rmNewLine(), and adds it to the bottom of the sayings[][] array, displaying a confirmation message. If there are 30 sayings, the program tells the user this and exits the function.
+3) Calls contains(), which prompts the user for a search term, removes the new line character with rmNewLine(), then loops through the sayings list, lowercasing each string, using strstr() to find if the term is part of the string, then outputting the original (non-lowercased) string if there is a match
+4) Calls saveToFile(), which prompts the user for a file name, then creates/opens that file, writes to it line by line, closes it, and displays a confirmation message
+
+The program then calls printMenu() again, and returns to the start of the while loop. The program terminates when the user enters 5.
+
+I verified that the program is correct by throwing a bunch of cases at it and testing every possible action the user could take. My program enforces the 30 saying limit and allows uppercase letters in the database, which is better than the minimum requirements for the program and helps reduce error.

@@ -1,0 +1,10 @@
+Owen Dorweiler
+Fundementals of Computing
+Lab 3, Lab Report
+
+From a user perspective, the program first prints a menu, asks for a selection, then asks for two numbers, and performs the selected calculation, displaying it to the user and displaying errors if applicable. It then repeats this process until the user selects option 5 (quit).
+
+Internally, the program first initializes the selection and num1 and num2 variables, then runs the menu() program to display the menu and get the first user input. It then stops if the selection is 5, or keeps going if it is not 5. It gets user inputs for the first and second number, then passes the selection along with these numbers to the decide() function. This function sends the numbers to the correct operation function (add, subtract, multiply, divide) based on the selection, also displaying errors if there are any. The operation functions perform the selected operation on the numbers and display the output. The program then returns to main(), where the menu() function is called again, returning to the start of the loop.
+
+The program was verified by a series of tests with both integers and decimal numbers for each operation, including inputs that yield errors. The program functioned correctly.
+
